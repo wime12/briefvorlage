@@ -19,6 +19,8 @@
 .nr infolettersize 9p
 .nr infolinespacing 11p
 .nr backlettersize 8p
+.nr bmargin 2c
+.nr tmargin 2c
 .af mo 01
 .af dy 01
 .ds datum \n[year]-\n(mo-\n(dy
@@ -136,9 +138,26 @@ Datum: \\*[datum]
 .   ev
 ..
 .\""""""""""""" Betreff """"""""""""
+.de P
+.   sp
+.   ne 1v
+..
+.de BreakPage
+'   wh -\\n[bmargin]u
+'   sp |\\n(.pu-\\n[bmargin]u
+'   rj
+\&...
+'   bp
+.   wh -\\n[bmargin]u BreakPage
+'   sp |0c
+'   ce
+- \\n% -
+'   sp |\\n[tmargin]u
+..
 .de BT
 .   ev da
 .   evc default
+.   wh -\\n[bmargin]u BreakPage
 .   fi
 .   sp |9.846c
 .   ft B
@@ -156,6 +175,7 @@ Datum: \\*[datum]
 \\*[schluss]
 .   sp 3
 \\*[name]
+.   wh -\\n[bmargin]u
 .   ev
 ..
 .\""""""""""""" Anlagen """""""""""""""
