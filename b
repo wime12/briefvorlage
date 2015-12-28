@@ -143,16 +143,20 @@ Datum: \\*[datum]
 .   ne 1v
 ..
 .de BreakPage
+.   ev 1
 '   wh -\\n[bmargin]u
-'   sp |\\n(.pu-\\n[bmargin]u
+'   sp |\\n(.pu-\\n[bmargin]u+1v
 '   rj
+.ft B
 \&...
+.ft P
 '   bp
 .   wh -\\n[bmargin]u BreakPage
-'   sp |0c
+'   sp |1v
 '   ce
 - \\n% -
 '   sp |\\n[tmargin]u
+.   ev
 ..
 .de BT
 .   ev da
@@ -172,6 +176,7 @@ Datum: \\*[datum]
 .de ET
 .   sp
 .   nf
+.   ne 4
 \\*[schluss]
 .   sp 3
 \\*[name]
