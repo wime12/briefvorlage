@@ -15,7 +15,7 @@
 .padj
 .\" General Variables
 .nr lettersize 11p
-.nr linespacing 13p
+.nr linespacing 14p
 .nr infolettersize 9p
 .nr infolinespacing 11p
 .nr backlettersize 8p
