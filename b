@@ -142,23 +142,26 @@ Datum: \\*[datum]
 .   sp
 .   ne 2
 ..
-.de BreakPage
+.de PageHeader
 .   ev 1
-.\".   wh -(\\n[bmargin]u+0.5v)
-'   sp |\\n(.pu-\\n[bmargin]u+1v
-.   tl '''...'
-'   bp
-.\".   wh -(\\n[bmargin]u+0.5v) BreakPage
 '   sp |1v
 .   tl ''- % -''
 '   sp |\\n[tmargin]u
 .   ev
 .   ns
 ..
+.de PageFooter
+.   ev 1
+'   sp |\\n(.pu-\\n[bmargin]u+1v
+.   tl '''...'
+'   bp
+.   ev
+..
 .de BT
 .   ev da
 .   evc default
-.   wh -(\\n[bmargin]u+0.5v) BreakPage
+.   wh 0 PageHeader
+.   wh -(\\n[bmargin]u+0.5v) PageFooter
 .   fi
 .   sp |9.846c
 .   ft B
@@ -177,6 +180,7 @@ Datum: \\*[datum]
 \\*[schluss]
 .   sp 3
 \\*[name]
+.   wh 0
 .   wh -(\\n[bmargin]u+0.5v)
 .   ev
 ..
