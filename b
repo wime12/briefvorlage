@@ -140,28 +140,25 @@ Datum: \\*[datum]
 .\""""""""""""" Betreff """"""""""""
 .de P
 .   sp
-.   ne 1v
+.   ne 2
 ..
 .de BreakPage
 .   ev 1
-'   wh -\\n[bmargin]u
+.\".   wh -(\\n[bmargin]u+0.5v)
 '   sp |\\n(.pu-\\n[bmargin]u+1v
-'   rj
-.ft B
-\&...
-.ft P
+.   tl '''...'
 '   bp
-.   wh -\\n[bmargin]u BreakPage
+.\".   wh -(\\n[bmargin]u+0.5v) BreakPage
 '   sp |1v
-'   ce
-- \\n% -
+.   tl ''- % -''
 '   sp |\\n[tmargin]u
 .   ev
+.   ns
 ..
 .de BT
 .   ev da
 .   evc default
-.   wh -\\n[bmargin]u BreakPage
+.   wh -(\\n[bmargin]u+0.5v) BreakPage
 .   fi
 .   sp |9.846c
 .   ft B
@@ -176,11 +173,11 @@ Datum: \\*[datum]
 .de ET
 .   sp
 .   nf
-.   ne 4
+.   ne 5
 \\*[schluss]
 .   sp 3
 \\*[name]
-.   wh -\\n[bmargin]u
+.   wh -(\\n[bmargin]u+0.5v)
 .   ev
 ..
 .\""""""""""""" Anlagen """""""""""""""
