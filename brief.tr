@@ -4,13 +4,27 @@
 .ds rueckadresse "Wilfried Meindl \(bu Roter-Brach-Weg 129 \(bu 93049 Regensburg
 .ds betreff \(:Uberweisung
 .ds name "Wilfried Meindl
+.BK
+.ce 1000
+.sp 2
+\fBDr.\ Wilfried Meindl\fP
+.sp -0.6
+\D'l \n(.lu 0'
+Roter-Brach-Weg 129 \(bu 94431 Regensburg
+Tel.: 0941 30095246 \(bu E-Mail: wilfried.meindl@gmail.com
+.ce
+.EK
 .DA
 .MA
 .RU
 .BI
-Telefon: 0941 30095246
-E-Mail: wilfried.meindl@gmail.com
+.\"Telefon: 0941 30095246
+.\"E-Mail: wilfried.meindl@gmail.com
 .EI
+.BV
+Eilzustellung
+Nicht nachsenden!
+.EV
 .BA
 Sparkasse Niederbayern-Mitte
 Gesch\(:aftsstelle Gro\(ssk\(:ollnbach

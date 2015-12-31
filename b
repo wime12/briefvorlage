@@ -56,8 +56,10 @@
 .char \(bu \[bullet]
 .\"""""""""""" Falz- und Lochmarken """"""""""""""
 .de MA
+.   nf
 .   vs 0
 .   po 0
+.   in 0
 .   sp |10.5c
 \D'l 1.0c 0c'
 .   sp |14.85c
@@ -88,22 +90,51 @@ Datum: \\*[datum]
 \\*[rueckadresse]
 .   ev
 ..
-.\"""""""""" Vermerke """"""""""""""
-.de vermerkfehler
-.   errprint "Vermerkfeld zu hoch
+.\"""""""""""" Briefkopf """"""""""
+.de BK
+.   ev da
+.   evc default
+.   nf
+.   di briefkopf
 ..
+.de EK
+.   di
+.   if \\n(dnu>4.5c .errprint "Briefkopf zu hoch"
+.   ev 1
+.   sp |0
+.   nf
+.   briefkopf
+.   ev
+..
+.\"""""""""" Vermerke """"""""""""""
 .de BV
 .   ev da
 .   evc default
-.   in 0
-.   wh 6.27c+0.5v vermerkfehler
-.   sp |6.27c-2v
 .   nf
+.   di vermerk
 ..
 .de EV
+.   di
+.   if \\n(dnu>2v .errprint "Vermerkfeld zu hoch"
+.   ev 1
+.   in 0
+'   sp |6.27c-\\n(dnu
+'   nf
+.   vermerk
 .   ev
-.   wh 6.27c+0.5v
 ..
+.\".de BV
+.\".   ev da
+.\".   evc default
+.\".   in 0
+.\".   wh 6.27c+0.5v vermerkfehler
+.\".   sp |6.27c-2v
+.\".   nf
+.\"..
+.\".de EV
+.\".   ev
+.\".   wh 6.27c+0.5v
+.\"..
 .\"""""""""" Anschrift """""""""""""
 .de anschriftfehler
 .	errprint "Anschriftfeld zu hoch
@@ -137,7 +168,7 @@ Datum: \\*[datum]
 .   wh 9c-2v
 .   ev
 ..
-.\""""""""""""" Betreff """"""""""""
+.\""""""""""""" Main Text """"""""""""
 .de P
 .   sp
 .   ne 2
