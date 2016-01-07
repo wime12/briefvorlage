@@ -44,8 +44,15 @@
 .char \(lq \[quotebase]
 .char \(rq \[quoteleft]
 .char \(bu \[bullet]
+.\""""""""""""" Hilfsmakros """""""""""""""""""""
+.de CheckFirstPage
+.   if \\n%>1 \{
+.	errprint "Macro must be called on page 1"
+.	ex \}
+..
 .\"""""""""""" Falz- und Lochmarken """"""""""""""
 .de MA
+.   CheckFirstPage
 .   nf
 .   vs 0
 .   po 0
@@ -62,6 +69,7 @@
 ..
 .\""""""""""""""" Datum """"""""""""""""""""""""""
 .de DA
+.   CheckFirstPage
 .   ev da
 .   evc default
 .   in 10c
@@ -72,6 +80,7 @@ Datum: \\*[datum]
 ..
 .\""""""""" Rücksendeadresse """""""
 .de RU
+.   CheckFirstPage
 .   ev da
 .   evc default
 .   ps \n[backlettersize]u
@@ -82,6 +91,7 @@ Datum: \\*[datum]
 ..
 .\"""""""""""" Briefkopf """"""""""
 .de BK
+.   CheckFirstPage
 .   ev da
 .   evc default
 .   nf
@@ -98,6 +108,7 @@ Datum: \\*[datum]
 ..
 .\"""""""""" Vermerke """"""""""""""
 .de BV
+.   CheckFirstPage
 .   ev da
 .   evc default
 .   nf
@@ -118,6 +129,7 @@ Datum: \\*[datum]
 .	errprint "Anschriftfeld zu hoch
 ..
 .de BA
+.   CheckFirstPage
 .   ev da
 .   evc default
 .   sp |6.27c
@@ -133,6 +145,7 @@ Datum: \\*[datum]
 .	errprint "Informationsblock zu hoch
 ..
 .de BI
+.   CheckFirstPage
 .   ev da
 .   evc default
 .   in 10c
@@ -167,6 +180,7 @@ Datum: \\*[datum]
 .   ev
 ..
 .de BT
+.   CheckFirstPage
 .   ev da
 .   evc default
 .   wh 0 PageHeader
