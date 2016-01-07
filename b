@@ -113,18 +113,6 @@ Datum: \\*[datum]
 .   vermerk
 .   ev
 ..
-.\".de BV
-.\".   ev da
-.\".   evc default
-.\".   in 0
-.\".   wh 6.27c+0.5v vermerkfehler
-.\".   sp |6.27c-2v
-.\".   nf
-.\"..
-.\".de EV
-.\".   ev
-.\".   wh 6.27c+0.5v
-.\"..
 .\"""""""""" Anschrift """""""""""""
 .de anschriftfehler
 .	errprint "Anschriftfeld zu hoch
