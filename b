@@ -1,13 +1,3 @@
-.\""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-.\" Briefvorlage für Briefe nach DIN 5008                    "
-.\"                                                          "
-.\" Control-N springt zum nächsten Eingabefeld. Control-P    "
-.\" springt zum vorherigen. Geht sowohl im visuellen Modus   "
-.\" als auch im Einfügemodus.                                "
-.\" Am Ende "make" in diesem Verzeichnis aufrufen, um die    "
-.\" Postscript-Datei "brief.ps" zu erzeugen.                 "
-.\"                                                          "
-.\""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 .do xflag 3
 .mediasize a4
 .hylang de_DE
@@ -171,7 +161,7 @@ Datum: \\*[datum]
 .\""""""""""""" Main Text """"""""""""
 .de P
 .   sp
-.   ne 2
+.\".   ne 2
 ..
 .de PageHeader
 .   ev 1
