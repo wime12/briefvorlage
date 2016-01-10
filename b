@@ -3,7 +3,7 @@
 .hylang de_DE
 .hy 14
 .padj
-.\" General Variables
+.\""""""""""""" Maße """""""""""""""""""""""
 .nr lettersize 11p
 .nr linespacing 14p
 .nr infolettersize 9p
@@ -11,6 +11,9 @@
 .nr backlettersize 8p
 .nr bmargin 2c
 .nr tmargin 2c
+.nr linkerrand 2.5c
+.nr zeilenlaenge 16.5c
+.\""""""""""""" Stringvariablen """"""""""""""""""
 .af mo 01
 .af dy 01
 .ds datum \n[year]-\n(mo-\n(dy
@@ -24,14 +27,6 @@
 .fp 2 I Optima-Italic
 .fp 3 B Optima-Bold
 .fp 4 BI Optima-BoldItalic
-.po 2.5c
-.ev default
-.   ps \n[lettersize]u
-.   vs \n[linespacing]u
-.   ss \n[.ss] 0
-.   ll 16.5c
-.   in 0c
-.ev
 \.\"""""""""""""" German Glyphs """""""""""""""""""
 .char \(:A \[Adieresis]
 .char \(:O \[Odieresis]
@@ -51,9 +46,19 @@
 .	errprint "Macro must be called on page 1"
 .	ex \}
 ..
+.de RT
+.   ps \\n[lettersize]u
+.   vs \\n[linespacing]u
+.   ss \\n[.ss] 0
+.   po \\n[linkerrand]u
+.   ll \\n[zeilenlaenge]u
+.   in 0c
+.   ft R
+..
 .\"""""""""""" Falz- und Lochmarken """"""""""""""
 .de MA
 .   CheckFirstPage
+.   RT
 .   nf
 .   vs 0
 .   po 0
@@ -71,30 +76,25 @@
 .\""""""""""""""" Datum """"""""""""""""""""""""""
 .de DA
 .   CheckFirstPage
-.   ev da
-.   evc default
+.   RT
 .   in 10c
 .   sp |9c-1v
 .   nf
 Datum: \\*[datum]
-.   ev
 ..
 .\""""""""" Rücksendeadresse """""""
 .de RU
 .   CheckFirstPage
-.   ev da
-.   evc default
+.   RT
 .   ps \n[backlettersize]u
 .   sp |4.5c
 .   nf
 \\*[rueckadresse]
-.   ev
 ..
 .\"""""""""""" Briefkopf """"""""""
 .de BK
 .   CheckFirstPage
-.   ev da
-.   evc default
+.   RT
 .   nf
 .   di briefkopf
 ..
@@ -110,20 +110,17 @@ Datum: \\*[datum]
 .\"""""""""" Vermerke """"""""""""""
 .de BV
 .   CheckFirstPage
-.   ev da
-.   evc default
+.   RT
 .   nf
 .   di vermerk
 ..
 .de EV
 .   di
 .   if \\n(dnu>2v .errprint "Vermerkfeld zu hoch"
-.   ev 1
 .   in 0
 '   sp |6.27c-\\n(dnu
 '   nf
 .   vermerk
-.   ev
 ..
 .\"""""""""" Anschrift """""""""""""
 .de anschriftfehler
@@ -131,15 +128,13 @@ Datum: \\*[datum]
 ..
 .de BA
 .   CheckFirstPage
-.   ev da
-.   evc default
+.   RT
 .   sp |6.27c
 .   wh 9c anschriftfehler
 .   nf
 ..
 .de EA
 .   wh 9c
-.   ev
 ..
 .\"""""""""""" Informationsblock """"""""""""""
 .de infofehler
@@ -147,8 +142,7 @@ Datum: \\*[datum]
 ..
 .de BI
 .   CheckFirstPage
-.   ev da
-.   evc default
+.   RT
 .   in 10c
 .   ps \n[infolettersize]u
 .   vs \n[infolinespacing]u
@@ -158,32 +152,28 @@ Datum: \\*[datum]
 ..
 .de EI
 .   wh 9c-2v
-.   ev
 ..
 .\""""""""""""" Main Text """"""""""""
 .de P
+.   RT
 .   sp
-.\".   ne 2
 ..
 .de PageHeader
-.   ev 1
+.   RT
 '   sp |1v
 .   tl ''- % -''
 '   sp |\\n[tmargin]u
-.   ev
 .   ns
 ..
 .de PageFooter
-.   ev 1
+.   RT
 '   sp |\\n(.pu-\\n[bmargin]u+1v
 .   tl '''...'
 '   bp
-.   ev
 ..
 .de BT
 .   CheckFirstPage
-.   ev da
-.   evc default
+.   RT
 .   wh 0 PageHeader
 .   wh -(\\n[bmargin]u+0.5v) PageFooter
 .   fi
@@ -206,12 +196,10 @@ Datum: \\*[datum]
 \\*[name]
 .   wh 0
 .   wh -(\\n[bmargin]u+0.5v)
-.   ev
 ..
 .\""""""""""""" Anlagen """""""""""""""
 .de BL
-.   ev da
-.   evc default
+.   RT
 .   sp
 .   nf
 .   ft B
@@ -219,5 +207,5 @@ Anlagen
 .   ft R
 ..
 .de EL
-.   ev
 ..
+.\" vim:ft=groff:
