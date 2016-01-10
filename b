@@ -23,6 +23,7 @@
 .fp 1 R Optima
 .fp 2 I Optima-Italic
 .fp 3 B Optima-Bold
+.fp 4 BI Optima-BoldItalic
 .po 2.5c
 .ev default
 .   ps \n[lettersize]u
